@@ -1,11 +1,11 @@
 :root {
   color-scheme: dark;
-  --ink: #f5f7fb;
-  --muted: #aab5c7;
-  --line: rgba(255, 255, 255, 0.14);
-  --surface: #0c1422;
-  --surface-soft: #131e30;
-  --accent: #6ea8ff;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.08);
+  --surface: #ffffff;
+  --surface-soft: #f5f5f7;
+  --accent: #06c;
   --max-width: 1180px;
 }
 
@@ -14,8 +14,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   color: var(--ink);
-  background: #050a12;
-  font-family: Inter, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Pretendard, "Noto Sans KR", sans-serif;
   line-height: 1.6;
 }
 a { color: inherit; }
@@ -28,10 +28,13 @@ a { color: inherit; }
   padding: 1.25rem 1.5rem;
   position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: saturate(180%) blur(1rem);
 }
 .brand { font-weight: 700; text-decoration: none; }
 .site-nav { display: flex; gap: 1.25rem; }
-.site-nav a { color: var(--muted); text-decoration: none; }
+.site-nav a { color: var(--muted); font-size: 0.9rem; text-decoration: none; }
 .site-nav a:hover, .site-nav a:focus-visible { color: var(--ink); }
 .nav-toggle { display: none; }
 main { margin: 0 auto; max-width: var(--max-width); }
@@ -40,7 +43,7 @@ main { margin: 0 auto; max-width: var(--max-width); }
   display: grid;
   gap: 4rem;
   grid-template-columns: 1.2fr 0.8fr;
-  min-height: 72vh;
+  min-height: 78vh;
   padding: 5rem 1.5rem;
 }
 .eyebrow { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; }
@@ -49,9 +52,9 @@ h1 { font-size: clamp(2.8rem, 7vw, 6.5rem); }
 h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .hero-copy > p:not(.eyebrow), .content-section > p:not(.eyebrow) { color: var(--muted); max-width: 38rem; }
 .button {
-  background: var(--ink);
+  background: var(--accent);
   border-radius: 999px;
-  color: #08101c;
+  color: #ffffff;
   display: inline-block;
   font-weight: 700;
   margin-top: 1.25rem;
@@ -59,7 +62,7 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
   text-decoration: none;
 }
 .profile-card {
-  background: radial-gradient(circle at 50% 30%, #1b4f92, var(--surface) 68%);
+  background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 2rem;
   overflow: hidden;
@@ -70,7 +73,7 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .muted-copy { color: var(--muted); margin: 0; max-width: 38rem; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .skill-list span { border: 1px solid var(--line); border-radius: 1rem; padding: 0.75rem 1rem; }
-.games-placeholder { background: linear-gradient(135deg, var(--surface), var(--surface-soft)); }
+.games-placeholder { background: var(--surface-soft); }
 .game-shell { margin-top: 2rem; max-width: 42rem; }
 .game-toolbar { align-items: center; color: var(--muted); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-bottom: 0.75rem; }
 .game-toolbar strong { color: var(--ink); }
@@ -87,12 +90,13 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .game-cell.snake-head { background: #d7e7ff; }
 .game-cell.enemy { background: #f3778f; box-shadow: 0 0 0.4rem rgba(243, 119, 143, 0.7); }
 .game-actions, .direction-pad { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1rem; }
-.game-actions button, .direction-pad button { background: var(--ink); border: 0; border-radius: 999px; color: #08101c; cursor: pointer; font: inherit; font-weight: 700; min-height: 2.75rem; min-width: 2.75rem; padding: 0.55rem 0.9rem; }
+.game-actions button, .direction-pad button { background: var(--ink); border: 0; border-radius: 999px; color: #ffffff; cursor: pointer; font: inherit; font-weight: 700; min-height: 2.75rem; min-width: 2.75rem; padding: 0.55rem 0.9rem; }
 .game-actions button:disabled { cursor: not-allowed; opacity: 0.45; }
 .direction-pad { display: none; flex-direction: column; }
 .direction-pad > div { display: flex; gap: 0.6rem; justify-content: center; }
 .game-help { color: var(--muted); font-size: 0.9rem; text-align: center; }
-.site-footer { color: var(--muted); margin: 0 auto; max-width: var(--max-width); padding: 2rem 1.5rem 4rem; }
+.site-footer { align-items: center; color: var(--muted); display: flex; gap: 1rem; justify-content: center; margin: 0 auto; max-width: var(--max-width); padding: 2rem 1.5rem 4rem; text-align: center; }
+.site-version { color: var(--muted); font-size: 0.8rem; }
 
 @media (max-width: 720px) {
   .site-header { align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; }
