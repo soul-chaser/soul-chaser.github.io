@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+  --ink: #f5f7fb;
+  --muted: #aab5c7;
+  --line: rgba(255, 255, 255, 0.14);
+  --surface: #0c1422;
+  --surface-soft: #131e30;
+  --accent: #6ea8ff;
+  --max-width: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #050a12;
+  font-family: Inter, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; }
+.site-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 1.25rem 1.5rem;
+}
+.brand { font-weight: 700; text-decoration: none; }
+.site-nav { display: flex; gap: 1.25rem; }
+.site-nav a { color: var(--muted); text-decoration: none; }
+.site-nav a:hover, .site-nav a:focus-visible { color: var(--ink); }
+main { margin: 0 auto; max-width: var(--max-width); }
+.hero {
+  align-items: center;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  min-height: 72vh;
+  padding: 5rem 1.5rem;
+}
+.eyebrow { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; }
+h1, h2 { letter-spacing: -0.04em; line-height: 1.1; margin: 0 0 1.25rem; }
+h1 { font-size: clamp(2.8rem, 7vw, 6.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+.hero-copy > p:not(.eyebrow), .content-section > p:not(.eyebrow) { color: var(--muted); max-width: 38rem; }
+.button {
+  background: var(--ink);
+  border-radius: 999px;
+  color: #08101c;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+}
+.profile-card {
+  background: radial-gradient(circle at 50% 30%, #1b4f92, var(--surface) 68%);
+  border: 1px solid var(--line);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.profile-card img { display: block; height: auto; width: 100%; }
+.content-section { border-top: 1px solid var(--line); padding: 6rem 1.5rem; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.skill-list span, .game-stage { border: 1px solid var(--line); border-radius: 1rem; padding: 0.75rem 1rem; }
+.games-placeholder { background: linear-gradient(135deg, var(--surface), var(--surface-soft)); }
+.game-stage { align-items: center; color: var(--muted); display: flex; justify-content: center; margin-top: 2rem; min-height: 12rem; }
+.site-footer { color: var(--muted); margin: 0 auto; max-width: var(--max-width); padding: 2rem 1.5rem 4rem; }
+
+@media (max-width: 720px) {
+  .site-header { align-items: flex-start; flex-direction: column; gap: 0.75rem; }
+  .site-nav { flex-wrap: wrap; gap: 0.75rem 1rem; }
+  .hero { gap: 2rem; grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; }
+  .profile-card { max-width: 22rem; }
+  .content-section { padding: 4rem 1.5rem; }
+}
