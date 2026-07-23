@@ -29,6 +29,8 @@ const statusLabel = document.querySelector("#game-status");
 const startButton = document.querySelector("#game-start");
 const pauseButton = document.querySelector("#game-pause");
 const restartButton = document.querySelector("#game-restart");
+const gameOverOverlay = document.querySelector("#game-over-overlay");
+const gameOverScore = document.querySelector("#game-over-score");
 const columns = 20;
 const rows = 16;
 const playerSpeed = 1;
@@ -205,10 +207,13 @@ function renderGame() {
   board.replaceChildren(...cells);
   scoreLabel.textContent = String(game.score);
   bestLabel.textContent = String(Math.max(game.best, game.score));
+  gameOverScore.textContent = String(game.score);
+  gameOverOverlay.hidden = game.status !== "GAME_OVER";
   statusLabel.textContent = { READY: "시작 준비", RUNNING: "플레이 중", PAUSED: "일시정지", GAME_OVER: "게임 오버" }[game.status];
   pauseButton.disabled = !["RUNNING", "PAUSED"].includes(game.status);
   pauseButton.textContent = game.status === "PAUSED" ? "계속하기" : "일시정지";
-  startButton.disabled = game.status === "RUNNING";
+  startButton.disabled = ["RUNNING", "PAUSED"].includes(game.status);
+  restartButton.disabled = game.status === "READY";
 }
 
 document.addEventListener("keydown", (event) => {
